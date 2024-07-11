@@ -41,15 +41,15 @@ from django.contrib.auth.models import User
 #     print(user_B.is_staff)
 #     assert user_B.is_staff
 
-# @pytest.mark.django_db
-# def test_new_user(user_factory):
-#     user = user_factory.build()
-#     count = User.objects.all().count()
-#     print(count)
-#     print(user.username)
-#     assert True
+@pytest.mark.django_db
+def test_new_user(user_factory):
+    user = user_factory.build()
+    #count = User.objects.all().count()
+    #print(count)
+    print(user.username)
+    assert user.username != ""
 
 def test_product(product_factory):
     product = product_factory.build()
     print(product.description)
-    assert True
+    assert product.description != ""
